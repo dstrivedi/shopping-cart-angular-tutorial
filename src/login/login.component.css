@@ -1,0 +1,24 @@
+.space-around {
+  margin: 140px auto auto auto;
+  width: 80%;
+  padding: 30px;
+}
+
+h2 {
+  color: blue;
+}
+
+.signin {
+  margin-right: 1em;
+}
+
+@media(max-width: 800px) {
+  .buttons {
+    display: flex;
+    flex-flow:column;
+  }
+  .signin, .signup {
+    margin-top: 1em;
+    width: 40% !important;
+  }
+}

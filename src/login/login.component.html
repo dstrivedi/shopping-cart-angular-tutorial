@@ -1,0 +1,26 @@
+<div class="container border space-around">
+  <h2>Login to Shopping Cart</h2>
+  <!-- Reactive forms -->
+	<form [formGroup]="loginForm" (ngSubmit)="onSubmit(username.value, password.value)">
+    <div class="form-group">
+      <label for="username">Username: </label>
+      <div class="controls">
+        <input type="text" id="username" placeholder="Enter username" class="form-control" [formControlName]="'username'">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="password">Password: </label>
+       <div class="controls">
+          <input type="password" id="pwd" placeholder="Enter password" class="form-control" [formControlName]="'password'">
+        </div>
+    </div>
+    <div class="form-group buttons">
+      <button class="btn btn-primary signin" type="submit"  style="width: 15%">
+        Sign in
+      </button>
+      <button class="btn btn-success signup" type=""  style="width: 15%">
+        Sign up
+      </button>
+    </div>
+  </form>
+</div>
