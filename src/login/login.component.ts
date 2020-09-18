@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ReactiveFormsModule, FormGroup, FormControl } from '@angular/forms';
+import {  FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -8,15 +8,19 @@ import { ReactiveFormsModule, FormGroup, FormControl } from '@angular/forms';
 })
 export class LoginComponent {
   loginForm : FormGroup;
-  constructor() { 
-    this.loginForm = new FormGroup({
-      username : new FormControl(''),
-      password : new FormControl('')
+  constructor(private readonly fb: FormBuilder) { 
+    this.loginForm = this.fb.group({
+      username : ['', Validators.required],
+      password : ['', Validators.required]
     });
   }
 
-  onSubmit(name:string, pwd:string) {
-    console.warn(name, pwd);
+  onSubmit() {
+    if(this.loginForm.valid) {
+      console.log(this.loginForm.getRawValue());
+    } else {
+      alert("Invalid form");
+    }
   }
 
 }
